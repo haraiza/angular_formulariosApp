@@ -1,1 +1,84 @@
-<p>dinamicos works!</p>
+<h2>
+    Template:
+    <small>Dinamicos</small>
+</h2>
+<hr>
+
+<form
+    (ngSubmit)='guardar()'
+    #dinamicoForm="ngForm"
+    autocomplete="off"
+>
+    <!-- NOMBRE -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input
+                class="form-control"
+                required
+                type="text"
+                ngModel
+                name='nombre'
+                placeholder="Nombre de la persona"
+            >
+            <!-- //Tambien se puede usar esta validación
+                <span
+                class="form-text text-danger"
+                *ngIf="existeNombre()"
+            > -->
+            <span
+                class="form-text text-danger"
+                *ngIf="dinamicoForm.controls['nombre']?.errors && dinamicoForm.controls['nombre']?.touched"
+            >
+                Este campo es obligatorio
+            </span>
+        </div>
+    </div>
+
+    <!-- AGREGAR FAVORITO -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+
+                <input
+                    class="form-control"
+                    placeholder="Agregar favorito"
+                >
+                <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                >
+                    Agregar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LISTA DE JUEGOS FAVORITOS -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Favoritos</label>
+        <div class="col-sm-9">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+            <input class="form-control mb-1">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 ">
+            <button
+                type="button"
+                [disabled]="dinamicoForm.invalid"
+                class="btn btn-primary float-end"
+                (click)="guardar()"
+            >
+                Guardar
+            </button>
+        </div>
+    </div>
+
+</form>
