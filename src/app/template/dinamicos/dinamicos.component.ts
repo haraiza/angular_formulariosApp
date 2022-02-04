@@ -17,7 +17,6 @@ interface Favorito {
   ]
 })
 export class DinamicosComponent {
-  @ViewChild('dinamicoForm') dinamicoForm!: NgForm;
 
   persona: Persona = {
     nombre: 'Humberto',
@@ -29,14 +28,9 @@ export class DinamicosComponent {
   }
 
 
-
-
-  // existeNombre(): boolean {
-  //   return (
-  //     this.dinamicoForm?.controls['nombre']?.invalid &&
-  //     this.dinamicoForm?.controls['nombre']?.touched
-  //   )
-  // }
+  eliminar(index: number) {
+    this.persona.favoritos.splice(index, 1);
+  }
 
   guardar() {
     console.log('formulario posteado');
