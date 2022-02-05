@@ -41,10 +41,11 @@
                     name='nuevoJuego'
                     [formControl]="nuevoFavorito"
                     (keyup.enter)="agregarFavorito()"
+                    (keydown.enter)="$event.preventDefault()"
                 >
                 <button
                     class="btn btn-outline-primary"
-                    type="submit"
+                    type="button"
                     (click)="agregarFavorito()"
                 >
                     Agregar
@@ -72,7 +73,8 @@
                 >
                 <button
                     class="btn btn-outline-danger"
-                    type="submit"
+                    type="button"
+                    (click)="borrar(i)"
                 >
                     Eliminar
                 </button>

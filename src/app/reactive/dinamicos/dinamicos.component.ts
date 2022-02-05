@@ -26,6 +26,7 @@ export class DinamicosComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder) { }
+  
 
   campoEsValido(campo: string) {
     return (
@@ -33,6 +34,12 @@ export class DinamicosComponent implements OnInit {
       this.miFormulario.controls[campo].touched
     )
   }
+
+
+  borrar(i: number) {
+    this.favoritosArr.removeAt(i);
+  }
+
 
   agregarFavorito() {
     if (this.nuevoFavorito.invalid) {
@@ -45,8 +52,10 @@ export class DinamicosComponent implements OnInit {
     this.nuevoFavorito.reset();
   }
 
+
   ngOnInit(): void {
   }
+
 
   guardar() {
     if (this.miFormulario.invalid) {
