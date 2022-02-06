@@ -26,4 +26,9 @@ export class SidemenuComponent {
     { texto: 'Dinamicos', ruta: './reactive/dinamicos' },
     { texto: 'Switches', ruta: './reactive/switches' },
   ];
+
+  authMenu: MenuItem[] = [
+    { texto: 'Login', ruta: './auth/login' },
+    { texto: 'Registro', ruta: './auth/registro' },
+  ];
 }
